@@ -135,11 +135,11 @@ class TestCodeQuality(unittest.TestCase):
         # This will generate 78498 prime numbers in about 1.5 seconds
         prime_time = timeit.Timer(
             lambda: self.prime.primes(1000000)
-            ).repeat(number=1, repeat=1)[0]
+        ).repeat(number=1, repeat=1)[0]
         hint = (
             f'The primes(n) function took {prime_time} seconds to run,\n'
             'which exceeds the allowed O(n) threshold of 1.5 seconds'
-            )
+        )
         self.assertLessEqual(prime_time, 1.5, hint)
 
     def test_doc_strings(self):
@@ -149,7 +149,7 @@ class TestCodeQuality(unittest.TestCase):
             self.assertIsNotNone(
                 func.__doc__,
                 f'function "{func_name}" is missing a docstring'
-                )
+            )
             # arbitrary length test of at least 10 chars
             self.assertGreaterEqual(len(func.__doc__), 10,
                                     "How about a bit more docstring?")
